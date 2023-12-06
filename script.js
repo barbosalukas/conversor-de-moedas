@@ -3,10 +3,10 @@ const currencySelect = document.querySelector(".currency-select")
 const currencySelectConvert = document.querySelector(".currency-select-convert")
 
 
-function convertFrom() {
-    
+function convertFrom(){
+    const inputValue = document.querySelector(".input-currency").value
     const valueFrom = document.querySelector(".currency-value-to-convert")
-    const fromValueConverted = document.querySelector(".currency-from").value
+    const fromValueConverted = document.querySelector(".currency-from")
 
 
     const dolarToday = 4.9
@@ -16,23 +16,23 @@ function convertFrom() {
     const bitcoinToday = 216.9
 
     if(currencySelectConvert.value == "BRL") {
-       fromValueConverted = new Intl.NumberFormat ("pt-br", {
+       valueFrom = new Intl.NumberFormat ("pt-br", {
             style: "currency",
             currency: "BRL" 
-        })
+        }).format(inputValue / realToday)
     }
-    if (fromValueConverted.value == "USD") {
-         currencySelectConvert.innerHTML = new Intl.NumberFormat("en-US", {
+    if (currencySelectConvert.value == "USD") {
+         valueFrom.innerHTML = new Intl.NumberFormat("en-US", {
             style: "currency",
             currency: "USD"
-        })
+        }).format(inputValue / dolarToday)
     }
 
     if (currencySelectConvert.value == "EUR") {
-         new Intl.NumberFormat("de-DE", {
+        valueFrom.innerHTML = new Intl.NumberFormat("de-DE", {
             style: "currency",
             currency: "EUR"
-        }).format(valueFrom / euroToday)
+        })
 
     }
    
