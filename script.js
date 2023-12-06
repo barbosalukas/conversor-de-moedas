@@ -2,15 +2,47 @@ const convertButton = document.querySelector(".convert-button")
 const currencySelect = document.querySelector(".currency-select")
 const currencySelectConvert = document.querySelector(".currency-select-convert")
 
+
 function convertFrom() {
+    
+    const valueFrom = document.querySelector(".currency-value-to-convert")
+    const fromValueConverted = document.querySelector(".currency-from").value
 
 
+    const dolarToday = 4.9
+    const euroToday = 5.3
+    const libraToday = 6.2
+    const realToday = 1.0
+    const bitcoinToday = 216.9
+
+    if(currencySelectConvert.value == "BRL") {
+       fromValueConverted = new Intl.NumberFormat ("pt-br", {
+            style: "currency",
+            currency: "BRL" 
+        })
+    }
+    if (fromValueConverted.value == "USD") {
+         currencySelectConvert.innerHTML = new Intl.NumberFormat("en-US", {
+            style: "currency",
+            currency: "USD"
+        })
+    }
+
+    if (currencySelectConvert.value == "EUR") {
+         new Intl.NumberFormat("de-DE", {
+            style: "currency",
+            currency: "EUR"
+        }).format(valueFrom / euroToday)
+
+    }
+   
 }
 
 function convertValues() {
     const inputCurrencyValue = document.querySelector(".input-currency").value
     const currencyValueToConvert = document.querySelector(".currency-value-to-convert") //Valor em Real
     const currencyValueConverted = document.querySelector(".currency-value") // Outras moedas
+   
 
     const dolarToday = 4.9
     const euroToday = 5.3
@@ -56,7 +88,6 @@ function convertValues() {
 
     }
 
-
     currencyValueToConvert.innerHTML = new Intl.NumberFormat("pt-BR", {
         style: "currency",
         currency: "BRL"
@@ -70,7 +101,7 @@ function changeCurrency() {
 
 
     if (currencySelect.value == "dolar") {
-        currencyName.innerHTML = "Dólar americano"
+        currencyName.innerHTML = "Dólar Americano"
         currencyImage.src = "./assets/dolar.png"
     }
 
@@ -93,6 +124,7 @@ function changeCurrency() {
         currencyName.innerHTML = "Real"
         currencyImage.src = "./assets/real.png"
     }
+    
 
 
     convertValues()
@@ -107,7 +139,7 @@ function imageFrom() {
 
 
     if (currencySelectConvert.value == "dolar") {
-        currencyNameFrom.innerHTML = "Dólar americano"
+        currencyNameFrom.innerHTML = "Dólar Americano"
         currencyImageFrom.src = "./assets/dolar.png"
     }
 
@@ -130,7 +162,6 @@ function imageFrom() {
         currencyNameFrom.innerHTML = "Real"
         currencyImageFrom.src = "./assets/real.png"
     }
-
 }
 
 
