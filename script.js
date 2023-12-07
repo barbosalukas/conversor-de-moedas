@@ -99,11 +99,8 @@ function convertValues() {
 
     }
 
+
     
-    currencyValueToConvert.innerHTML = new Intl.NumberFormat("pt-BR", {
-        style: "currency",
-        currency: "BRL"
-    }).format(inputCurrencyValue)
 }
 
 function changeCurrency() {
@@ -135,6 +132,8 @@ function changeCurrency() {
         currencyName.innerHTML = "Real"
         currencyImage.src = "./assets/real.png"
     }
+
+
     
     convertValues()
 
