@@ -5,7 +5,7 @@ const currencySelectConvert = document.querySelector(".currency-select-convert")
 
 function convertFrom(){
     const inputValue = document.querySelector(".input-currency").value
-    const valueFrom = document.querySelector(".currency-value-to-convert")
+    const valueFrom = document.querySelector("#value-from").value
     const fromValueConverted = document.querySelector(".currency-from")
 
 
@@ -15,8 +15,8 @@ function convertFrom(){
     const realToday = 1.0
     const bitcoinToday = 216.9
 
-    if(currencySelectConvert.value == "BRL") {
-       valueFrom = new Intl.NumberFormat ("pt-br", {
+    if(valueFrom.value == "BRL") {
+       fromValueConverted = new Intl.NumberFormat ("pt-br", {
             style: "currency",
             currency: "BRL" 
         }).format(inputValue / realToday)
@@ -28,19 +28,29 @@ function convertFrom(){
         }).format(inputValue / dolarToday)
     }
 
-    if (currencySelectConvert.value == "EUR") {
-        valueFrom.innerHTML = new Intl.NumberFormat("de-DE", {
+    if (valueFrom.value == "EUR") {
+        fromValueConverted.innerHTML = new Intl.NumberFormat("de-DE", {
             style: "currency",
             currency: "EUR"
-        })
+        }).format(inputValue / euroToday)
 
     }
-   
+
+    currencySelectConvert.innerHTML = new Intl.NumberFormat("de-DE", {
+        style: "currency",
+        currency: "EUR"
+    }).format(valueFrom)
+
+
+
 }
+    
+   
+
 
 function convertValues() {
     const inputCurrencyValue = document.querySelector(".input-currency").value
-    const currencyValueToConvert = document.querySelector(".currency-value-to-convert") //Valor em Real
+    const currencyValueToConvert = document.querySelector(".currency-value-to-convert").value //Valor em Real
     const currencyValueConverted = document.querySelector(".currency-value") // Outras moedas
    
 
@@ -87,11 +97,21 @@ function convertValues() {
         }).format(inputCurrencyValue / realToday)
 
     }
+    
+    currencyValueToConvert.innerHTML = new Intl.NumberFormat("de-DE", {
+        style: "currency",
+        currency: "EUR"
+    }).format(inputCurrencyValue)
+
+ 
+
 
     currencyValueToConvert.innerHTML = new Intl.NumberFormat("pt-BR", {
         style: "currency",
         currency: "BRL"
     }).format(inputCurrencyValue)
+
+   
 
 }
 
@@ -162,10 +182,14 @@ function imageFrom() {
         currencyNameFrom.innerHTML = "Real"
         currencyImageFrom.src = "./assets/real.png"
     }
+
+
+    convertFrom()
 }
 
 
 
 currencySelectConvert.addEventListener("change", imageFrom)
 currencySelect.addEventListener("change", changeCurrency)
-convertButton.addEventListener("click", convertValues, convertFrom)
+convertButton.addEventListener("click", convertValues)
+currencySelectConvert.addEventListener("click", convertFrom)
