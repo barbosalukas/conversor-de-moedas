@@ -11,7 +11,7 @@
 }
 
 body {
-    background-color: #8A51FC;
+    background-color: #60D394;
 }
 .logo {
     width: 300px;
@@ -23,7 +23,7 @@ main {
     width: 375px;
     border-radius: 20px;
     background: #F4F4F4;
-    margin: 0 auto 40px;
+    margin: 40px auto 40px;
     padding: 44px 24px 23px; 
 }
 
@@ -49,7 +49,7 @@ select, input {
 }
 
 button {
-    background-color: #772FD3;
+    background-color: #0E4749;
     border-radius: 5px;
     width: 100%;
     border: none;
@@ -69,7 +69,7 @@ button:active {
 }
 
 section {
-    border: 1px solid #772FD3;
+    border: 1px solid #0E4749;
     border-radius: 20px;
     margin-top: 36px;
     padding: 12px;

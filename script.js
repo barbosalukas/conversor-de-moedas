@@ -261,7 +261,7 @@ function changeCurrency() {
     }
 
     if (currencySelect.value == "bitcoin") {
-        currencyName.innerHTML = "BitCoin"
+        currencyName.innerHTML = "Bitcoin"
         currencyImage.src = "./assets/bitcoin.png"
     }
 
@@ -294,7 +294,7 @@ function changeCurrencyTop() {
     }
 
     if (currencySelectTop.value == "bitcoin-to") {
-        currency.innerHTML = "BitCoin"
+        currency.innerHTML = "Bitcoin"
         currencyTopImg.src = "./assets/bitcoin.png"
     }
 
